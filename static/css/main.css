@@ -1,0 +1,11 @@
+body {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 0;
+}
+
+.owl-img {
+    width: 100%;
+    max-width: 300px;
+}
