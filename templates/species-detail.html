@@ -8,13 +8,15 @@
 </head>
 
 <body>
+    <h1>{{ .Name }}</h1>
+    <a href="/species">Back to Species</a>
+    <hr>
+
     <img
         class="owl-img"
         src="{{ .Image }}"
         alt="{{ .Name }}"
     />
-
-    <h1>{{ .Name }}</h1>
 
     <p>
         <strong>Scientific name:</strong>
@@ -26,8 +28,7 @@
         {{ .Region }}
     </p>
 
+    <h2>About</h2>
     <p>{{ .About }}</p>
-
-    <a href="/species">Back to Species</a>
 </body>
 </html>

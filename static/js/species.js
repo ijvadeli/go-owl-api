@@ -28,7 +28,7 @@ fetch("/species-data")
                     alt="${owl.name}"
                 />
 
-                <h2>${owl.name}</h2>
+                <h2>${owl.name} (${owl.scientific_name})</h2>
 
                 <a href="/species/${owl.id}">View species</a>
             `
