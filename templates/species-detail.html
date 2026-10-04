@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Name }}</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+
+<body>
+    <img
+        class="owl-img"
+        src="{{ .Image }}"
+        alt="{{ .Name }}"
+    />
+
+    <h1>{{ .Name }}</h1>
+
+    <p>
+        <strong>Scientific name:</strong>
+        {{ .ScientificName }}
+    </p>
+
+    <p>
+        <strong>Region:</strong>
+        {{ .Region }}
+    </p>
+
+    <p>{{ .About }}</p>
+
+    <a href="/species">Back to Species</a>
+</body>
+</html>

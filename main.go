@@ -16,6 +16,8 @@ type Species struct {
 	Name           string `json:"name"`
 	ScientificName string `json:"scientific_name"`
 	Region         string `json:"region"`
+	Image          string `json:"image"`
+	About          string `json:"About"`
 }
 
 // Create a slice of species using []Species
@@ -25,12 +27,16 @@ var speciesData = []Species{
 		Name:           "Striped Owl",
 		ScientificName: "Asio clamator",
 		Region:         "South America and Central America",
+		Image:          "/static/img/asio-clamator.jpg",
+		About:          "Placeholder content",
 	},
 	{
 		ID:             2,
 		Name:           "Barn Owl",
 		ScientificName: "Tyto alba",
 		Region:         "Europe, Africa and West Asia",
+		Image:          "/static/img/tyto-alba.png",
+		About:          "Placeholder content",
 	},
 }
 
@@ -59,15 +65,46 @@ func main() {
 // Global scope
 // Home function handles request to index.html
 func home(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "index.html")
+	renderTemplate(w, "index.html", nil)
 }
 
 // Handles request to species page
 func species(w http.ResponseWriter, r *http.Request) {
+	// Remove trailing / from URL
 	path := strings.TrimSuffix(r.URL.Path, "/")
+	// Split path into parts
 	parts := strings.Split(path, "/")
 
-	fmt.Println(parts)
+	// Display on /species
+	if len(parts) == 2 {
+		renderTemplate(w, "species.html", nil)
+		return
+	}
+
+	// Display on /species/number
+	if len(parts) == 3 {
+		id, err := strconv.Atoi(parts[2])
+		// If id is invalid (err is not nil)
+		if err != nil {
+			http.Error(w, "Invalid species ID", http.StatusBadRequest)
+			return
+		}
+
+		// For all owls in speciesData render data on species-detail/id
+		for _, owl := range speciesData {
+			if owl.ID == id {
+				renderTemplate(w, "species-detail.html", owl)
+				return
+			}
+		}
+
+		// If species is not found
+		http.Error(w, "Species not found", http.StatusNotFound)
+		return
+	}
+
+	// General error message
+	http.Error(w, "Not found", http.StatusNotFound)
 }
 
 // * SpeciesAPI function
@@ -123,14 +160,16 @@ func speciesAPI(w http.ResponseWriter, r *http.Request) {
 }
 
 // * Render HTML template
-func renderTemplate(w http.ResponseWriter, tmpl string) {
+func renderTemplate(w http.ResponseWriter, tmpl string, data interface{}) {
 	// Parsing specified template file being passed as input
 	t, err := template.ParseFiles("templates/" + tmpl)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	if err := t.Execute(w, nil); err != nil {
+
+	// Give data and give it to template
+	if err := t.Execute(w, data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }

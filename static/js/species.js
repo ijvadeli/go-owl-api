@@ -22,9 +22,14 @@ fetch("/species-data")
 
             // Change the card info to species data
             card.innerHTML = `
+                <img 
+                    class="owl-img"
+                    src="${owl.image}"
+                    alt="${owl.name}"
+                />
+
                 <h2>${owl.name}</h2>
-                <p>Scientific name: ${owl.scientific_name}</p>
-                <p>Region: ${owl.region}</p>
+
                 <a href="/species/${owl.id}">View species</a>
             `
 
