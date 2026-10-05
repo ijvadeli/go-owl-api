@@ -17,7 +17,9 @@ type Species struct {
 	ScientificName string `json:"scientific_name"`
 	Region         string `json:"region"`
 	Image          string `json:"image"`
-	About          string `json:"About"`
+	About          string `json:"about"`
+	Description    string `json:"description"`
+	History        string `json:"history"`
 }
 
 // Create a slice of species using []Species
@@ -26,9 +28,11 @@ var speciesData = []Species{
 		ID:             1,
 		Name:           "Striped Owl",
 		ScientificName: "Asio clamator",
-		Region:         "South America and Central America",
+		Region:         "South and Central America",
 		Image:          "/static/img/asio-clamator.jpg",
-		About:          "Placeholder content",
+		About:          "The Striped Owl, also known as the Asio clamator is a medium 	sized owl species native to South and Central America.",
+		Description:    "The Striped Owl is a relatively large species with recognisable tufts of feathers on his head, resembling ears. It's around 30-38 cm (12-15 inch) in length and weighs from 320-546 g (11.3-19.3 oz). It's head, back, wings and tail all have brown with black stripes and small markings, the underparts are more buff-colored with heavy black streaking on the breast. The face is white with a thin black border around it.",
+		History:        "The Striped Owl was originally described by the French ornithologist Louis Pierre Vieillot in the year 1808, he named it the Bubo clamator. The name clamator is the Latin meaning for shouter. The type locality is Cayenne in French Guiana. The Striped Owl was at one time placed in it's own genus Rhinoptynx, and was later transferred to the genus Pseudoscops. A molecular study that compared the mitochondrial DNA sequences indicated that it should be placed in the genus Asio instead. This was confirmed by a large study of the owls in 2019.",
 	},
 	{
 		ID:             2,
@@ -37,6 +41,8 @@ var speciesData = []Species{
 		Region:         "Europe, Africa and West Asia",
 		Image:          "/static/img/tyto-alba.png",
 		About:          "Placeholder content",
+		Description:    "Placeholder",
+		History:        "Placeholder",
 	},
 }
 

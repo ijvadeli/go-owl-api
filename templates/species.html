@@ -1,31 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Species</title>
-    <link rel="stylesheet" href="/static/css/main.css">
-</head>
-<body>
-    <h1>Species</h1>
-    <a href="/home">Back to Home</a>
-    <hr>
+    <link rel="stylesheet" href="/static/css/main.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav>
+        <a href="/home">Back to Home</a>
+      </nav>
+      <header>
+        <h1>Species</h1>
+      </header>
 
-    <!-- Search species -->
-    <input
+      <!-- Search species -->
+      <input
         type="text"
         id="species-search"
         placeholder="Search for species.."
         autocomplete="off"
-    />
+      />
 
-    <!-- Display species -->
-    <div id="species-list"></div>
+      <!-- Display species -->
+      <div id="species-list"></div>
 
-    <!-- Appears when nothing matches search -->
-    <p id="no-results" hidden>No owl species found..</p>
+      <!-- Appears when nothing matches search -->
+      <p id="no-results" hidden>No owl species found..</p>
+    </div>
 
     <!-- Load JavaScript -->
     <script src="/static/js/species.js"></script>
-</body>
+  </body>
 </html>
