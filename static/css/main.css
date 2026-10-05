@@ -1,4 +1,39 @@
+/*--- Fonts ---*/
+@font-face {
+    font-family: 'Libron Regular';
+    src: url('/static/fonts/Libron-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Libron Bold';
+    src: url('/static/fonts/Libron-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Libron Italic';
+    src: url('/static/fonts/Libron-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Libron Bold Italic';
+    src: url('/static/fonts/Libron-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/*--- Page styling ---*/
 body {
+    font-family: 'Libron Regular', sans-serif;
     width: 100%;
     max-width: 700px;
     margin: auto;
@@ -8,6 +43,19 @@ body {
 .owl-img {
     width: 100%;
     max-width: 300px;
+}
+
+/*--- Text format styling ---*/
+i, em {
+    font-family: 'Libron Italic';
+}
+
+strong, b {
+    font-family: 'Libron Bold';
+}
+
+mark {
+    background-color: darkslategrey;
 }
 
 a {
